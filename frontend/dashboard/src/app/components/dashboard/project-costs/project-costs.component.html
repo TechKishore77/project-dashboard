@@ -1,0 +1,34 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>
+          <h5>Project Costs</h5>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Selling Price</td>
+        <td>{{ project?.contractValue }}</td>
+      </tr>
+      <tr>
+        <td>Operating Budget</td>
+        <td>{{ operatingBudget?.totalBudget }}</td>
+      </tr>
+      <tr>
+        <td>Cost at Completion (CAC)</td>
+        <td>{{ anticipatedBudget?.totalBudget }}</td>
+      </tr>
+      <tr>
+        <td>Expected Overall Profit</td>
+        <td>
+          {{
+            (project?.contractValue || 0) -
+              (anticipatedBudget?.totalBudget || 0)
+          }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,261 @@
+<div class="">
+  <div class="">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-header">Add Payment Summary</div>
+        <form
+          #formDirective="ngForm"
+          [formGroup]="paymentSummaryForm"
+          autocomplete="off"
+          class="row"
+        >
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label" for="ipcNo">IPC No.</label>
+            <input
+              class="form-control"
+              placeholder="Enter IPC Number"
+              formControlName="ipcNo"
+              id="ipcNo"
+              type="text"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                paymentSummaryForm?.get('ipcNo')?.touched &&
+                paymentSummaryForm?.get('ipcNo')?.invalid
+              "
+            >
+              <div *ngIf="paymentSummaryForm?.get('ipcNo')?.errors?.required">
+                IPC Number is required.
+              </div>
+              <div *ngIf="paymentSummaryForm?.get('ipcNo')?.errors?.minlength">
+                IPC Number should be minimum 3 characters.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label">Value Date</label>
+            <input
+              type="text"
+              formControlName="valueDate"
+              id="valueDate"
+              placeholder="Enter Value Date"
+              class="form-control"
+              placement="bottom"
+              bsDatepicker
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                paymentSummaryForm?.get('valueDate')?.touched &&
+                paymentSummaryForm?.get('valueDate')?.invalid
+              "
+            >
+              <div
+                *ngIf="paymentSummaryForm?.get('valueDate')?.errors?.required"
+              >
+                Value Date is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label">Submitted Date</label>
+            <input
+              type="text"
+              formControlName="submittedDate"
+              id="submittedDate"
+              placeholder="Enter Submitted Date"
+              class="form-control"
+              placement="bottom"
+              bsDatepicker
+            />
+          </div>
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label">Gross Amount</label>
+            <input
+              class="form-control"
+              placeholder="Enter Gross Amount"
+              formControlName="grossAmount"
+              type="number"
+            />
+          </div>
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label">Acc. Value Amount</label>
+            <input
+              class="form-control"
+              placeholder="Enter Accumulatd Value Amount"
+              formControlName="accumulatedValAmount"
+              type="number"
+            />
+          </div>
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label">Net Payable Amount</label>
+            <input
+              class="form-control"
+              placeholder="Enter Net Payable Amount"
+              formControlName="netPayableAmount"
+              type="number"
+            />
+          </div>
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label">Certified Date</label>
+            <input
+              type="text"
+              formControlName="certifiedDate"
+              id="certifiedDate"
+              required
+              placeholder="Enter Certified Date"
+              class="form-control"
+              placement="bottom"
+              bsDatepicker
+            />
+          </div>
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label">Certified Amount</label>
+            <input
+              class="form-control"
+              placeholder="Enter Certified Amount"
+              formControlName="certifiedAmount"
+              type="number"
+            />
+          </div>
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label">Payment Due Date</label>
+            <input
+              type="text"
+              formControlName="paymentDueDate"
+              id="paymentDueDate"
+              required
+              placeholder="Enter Payment Due Date"
+              class="form-control"
+              placement="bottom"
+              bsDatepicker
+            />
+          </div>
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label">Receivable Amount</label>
+            <input
+              class="form-control"
+              placeholder="Enter Receivale Amount"
+              formControlName="receivableAmount"
+              type="number"
+            />
+          </div>
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label">Received Amount</label>
+            <input
+              class="form-control"
+              placeholder="Enter Received Amount"
+              formControlName="receivedAmount"
+              type="number"
+            />
+          </div>
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label">Received Date</label>
+            <input
+              type="text"
+              formControlName="receivedDate"
+              id="receivedDate"
+              required
+              placeholder="Enter Received Date"
+              class="form-control"
+              placement="bottom"
+              bsDatepicker
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                paymentSummaryForm?.get('receivedDate')?.touched &&
+                paymentSummaryForm?.get('receivedDate')?.invalid
+              "
+            >
+              <div
+                *ngIf="
+                  paymentSummaryForm?.get('receivedDate')?.errors?.required
+                "
+              >
+                Received Date is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-sm-6 col-md-6 cool-xs-12">
+            <label class="form-label">Remarks</label>
+            <input
+              class="form-control"
+              placeholder="Enter Your Remarks"
+              formControlName="remarks"
+              type="text"
+            />
+          </div>
+        </form>
+        <div class="card-footer">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            (click)="submitMonthlyPaymentSummary()"
+            [disabled]="!paymentSummaryForm?.valid"
+          >
+            Submit <fa-icon [icon]="faPaperPlane"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-header">Recent Payment Summary</div>
+
+        <div
+          @fallIn
+          class="list-group-item list-group-item-action flex-column align-items-start"
+          *ngFor="let summary of listOfMonthlyPaymentsSummary"
+        >
+          <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1" [textContent]="summary?.ipcNo"></h3>
+            <small class="cursor-pointer">
+              <fa-icon
+                [icon]="faEdit"
+                (click)="openVerticallyCentered(content, summary)"
+              ></fa-icon>
+            </small>
+          </div>
+          <p class="mb-1">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+        <span *ngIf="listOfMonthlyPaymentsSummary?.length === 0"
+          >No Recent Records</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Update for {{ selectedPS?.ipcNo }}
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p class="mb-1">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      UPDATE
+    </button>
+  </div>
+</ng-template>

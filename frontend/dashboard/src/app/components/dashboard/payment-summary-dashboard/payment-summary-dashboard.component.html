@@ -1,0 +1,23 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><h5>Plan vs Actual (Payments)</h5></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Planned Invoice till date (A)</td>
+        <td>{{ plannedInvoice }}</td>
+      </tr>
+      <tr>
+        <td>Actual Invoice till date (B)</td>
+        <td>{{ actualInvoice }}</td>
+      </tr>
+      <tr>
+        <td>Variance (B-A)</td>
+        <td>{{ (actualInvoice - plannedInvoice).toFixed(2) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

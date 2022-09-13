@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Profit Report</h3>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-hover table-striped text-nowrap table-vcenter mb-0"
+      >
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>Planned Profit</th>
+            <th>Actual Profit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="report.length == 0">
+            No data found
+          </tr>
+          <tr *ngFor="let reportRow of report">
+            <td>{{ reportRow.project?.contractTitle }}</td>
+            <td>{{ reportRow.plannedProfit }}</td>
+            <td>{{ reportRow.actualProfit }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

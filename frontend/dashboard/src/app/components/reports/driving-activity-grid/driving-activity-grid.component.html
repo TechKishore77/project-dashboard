@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row d-flex">
+    <div *ngIf="activities.length == 0">
+      <p>No driving activities created yet.</p>
+      <a class="btn btn-success" [href]="createActivityLink"
+        >Create a driving activity.</a
+      >
+    </div>
+    <app-driving-activity-grid-item
+      *ngFor="let activity of activities"
+      [activity]="activity"
+      (editActivity)="onEditActivity($event)"
+      class="col-lg-3 col-sm-6 col-xs-6 mb-3"
+    >
+    </app-driving-activity-grid-item>
+  </div>
+</div>

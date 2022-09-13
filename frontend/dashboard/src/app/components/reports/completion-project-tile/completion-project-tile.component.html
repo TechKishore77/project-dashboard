@@ -1,0 +1,14 @@
+<div class="card m-3 h-100 shadow mb-5 bg-white rounded">
+  <div
+    class="card-body text-white"
+    [ngClass]="{
+      'bg-success': data.delayDays > 0,
+      'bg-danger': data.delayDays < 0,
+      'bg-secondary': data.delayDays == 0
+    }"
+  >
+    <p class="card-title">{{ data?.forecastCompletionDate || "NA" }}</p>
+    <p class="card-subtitle">(Forecast Completion Date)</p>
+    <p class="card=text">{{ data?.delayDays || 0 }} days</p>
+  </div>
+</div>

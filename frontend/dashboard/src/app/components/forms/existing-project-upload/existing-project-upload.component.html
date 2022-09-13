@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="form-group">
+    <ngx-select-dropdown
+      (change)="selectionChanged($event)"
+      [multiple]="false"
+      [options]="projects"
+      [config]="config"
+    >
+    </ngx-select-dropdown>
+  </div>
+  <app-excel-upload
+    [postUrl]="projectUpdateURL"
+    [disabled]="!fileUploadEnabled"
+    (success)="onSuccess($event)"
+  ></app-excel-upload>
+</div>

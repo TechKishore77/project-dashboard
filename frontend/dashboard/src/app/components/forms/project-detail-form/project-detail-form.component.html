@@ -1,0 +1,98 @@
+<div class="">
+  <div class="">
+    <div class="card">
+      <div class="text-center mb-2">
+        <a
+          class="header-brand"
+          [routerLink]="['/hr-dashboard']"
+          href="javascript:void(0)"
+          ><i class="fe fe-command brand-logo"></i
+        ></a>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Add Project</div>
+        <div class="form-group">
+          <label class="form-label">Contract No.</label>
+          <input
+            type="text"
+            class="form-control"
+            aria-describedby="emailHelp"
+            placeholder="Contract No."
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Contract Title </label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Contract Title"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Client</label>
+          <input type="text" class="form-control" placeholder="Client" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Consultant </label>
+          <input type="text" class="form-control" placeholder="Consultant" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Type of contract</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Type of contract"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Form of contract</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Form of contract"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Contract Value</label>
+          <input
+            type="number"
+            step="0.01"
+            class="form-control"
+            placeholder="Contract Value"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Project timeline</label>
+          <input
+            type="text"
+            placeholder="Start Date"
+            class="form-control"
+            placement="top"
+            bsDaterangepicker
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Maintenance Period</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Maintenance Period"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Status</label>
+          <input type="text" class="form-control" placeholder="Status" />
+        </div>
+        <div class="form-footer">
+          <a
+            [routerLink]="['/hr-dashboard']"
+            href="javascript:void(0)"
+            class="btn btn-primary btn-block"
+            title=""
+            >Create Project</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

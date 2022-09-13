@@ -1,0 +1,64 @@
+<div>
+  <div class="card">
+    <div class="card-body">
+      <form
+        #formDirective="ngForm"
+        [formGroup]="drivingActivityForm"
+        autocomplete="off"
+      >
+        <div class="form-group">
+          <label class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Name"
+            formControlName="name"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Status</label>
+          <select
+            class="form-control"
+            placeholder="Status"
+            formControlName="status"
+          >
+            <option
+              *ngFor="let statusOption of statusOptions"
+              [ngValue]="statusOption"
+            >
+              {{ statusOption }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Issues related to driving activity</label>
+          <textarea
+            class="form-control"
+            placeholder="Issues"
+            formControlName="issues"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Action Party</label>
+          <select
+            class="form-control"
+            placeholder="Action Party"
+            formControlName="actionParty"
+          >
+            <option
+              *ngFor="let actionPartyOption of actionPartyOptions"
+              [ngValue]="actionPartyOption"
+            >
+              {{ actionPartyOption }}
+            </option>
+          </select>
+        </div>
+        <div class="form-footer">
+          <button class="btn btn-primary btn-block" (click)="onAdd()">
+            {{ isEditing ? "Update" : "Add" }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

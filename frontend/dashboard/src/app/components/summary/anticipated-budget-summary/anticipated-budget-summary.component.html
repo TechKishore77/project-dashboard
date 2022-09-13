@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Component</th>
+      <th scope="col">Expenditure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let component of budget?.components">
+      <td>
+        {{ component.description }}
+      </td>
+      <td>
+        {{ component.cost }}
+      </td>
+    </tr>
+    <tr>
+      <th scope="col">Total Budget</th>
+      <th scope="col">{{ budget?.totalBudget }}</th>
+    </tr>
+  </tbody>
+</table>
+<button class="btn btn-primary mb-3" (click)="onEdit()">Edit</button>

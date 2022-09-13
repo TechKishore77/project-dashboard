@@ -1,0 +1,39 @@
+<table class="table table-striped">
+  <thead>
+    <th scope="col">Name</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let activity of activities; let i = index"
+      [attr.data-index]="i"
+    >
+      <td>{{ activity.name }}</td>
+      <td>
+        <button
+          class="btn btn-success btn-sm rounded-0"
+          type="button"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Delete"
+          (click)="onEdit(i)"
+        >
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </button>
+      </td>
+      <td>
+        <button
+          class="btn btn-danger btn-sm rounded-0"
+          type="button"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Delete"
+          (click)="onDelete(i)"
+        >
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,42 @@
+<div class="">
+  <div class="">
+    <div class="card">
+      <div class="text-center mb-2">
+        <a
+          class="header-brand"
+          [routerLink]="['/hr-dashboard']"
+          href="javascript:void(0)"
+          ><i class="fe fe-command brand-logo"></i
+        ></a>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Enter Operating Budget</div>
+        <div *ngIf="!isEditing">
+          <div
+            *ngFor="let component of components; let i = index"
+            [attr.data-index]="i"
+          >
+            <app-budget-component-input
+              [component]="component"
+              (deleteRequest)="deleteItem($event, i)"
+            ></app-budget-component-input>
+          </div>
+        </div>
+        <div class="form-group">
+          <button (click)="onAddBudgetComponent()" class="btn btn-primary">
+            Add another component
+          </button>
+        </div>
+        <div class="form-footer">
+          <a
+            [routerLink]="['/hr-dashboard']"
+            href="javascript:void(0)"
+            class="btn btn-primary btn-block"
+            title=""
+            >Update Budget</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

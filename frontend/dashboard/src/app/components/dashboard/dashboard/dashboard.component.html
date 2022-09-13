@@ -1,0 +1,14 @@
+<div class="container" style="max-width: 100%">
+  <app-project-dashboard-summary
+    [project]="project"
+  ></app-project-dashboard-summary>
+  <app-financial-summary [project]="project"></app-financial-summary>
+  <div class="row">
+    <div class="col-md-7">
+      <app-s-curve [project]="project"></app-s-curve>
+    </div>
+    <div class="col-md-5">
+      <app-spi-variance-curve [project]="project"></app-spi-variance-curve>
+    </div>
+  </div>
+</div>

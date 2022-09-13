@@ -1,0 +1,30 @@
+<div>
+  <ngx-spinner>
+    <p class="loading">Uploading...</p>
+  </ngx-spinner>
+  <div class="input-group">
+    <input
+      #uploadEl
+      ng2FileSelect
+      type="file"
+      accept=".xls,.xlsx"
+      [uploader]="uploader"
+      (onFileSelected)="fileSelected($event)"
+      (change)="onChange($event)"
+      [attr.disabled]="disabled ? '' : null"
+      id="uploadFile"
+    />
+    <button
+      class="btn btn-primary"
+      (click)="onUpload()"
+      [attr.disabled]="disabled ? '' : null"
+    >
+      Upload
+    </button>
+  </div>
+  <div class="alerts" *ngFor="let alert of alerts">
+    <alert dismissOnTimeout="3000" type="{{ alert.type }}">{{
+      alert.message
+    }}</alert>
+  </div>
+</div>

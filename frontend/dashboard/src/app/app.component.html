@@ -1,0 +1,6 @@
+<app-header *ngIf="router.url != '/login'"></app-header>
+<app-loader [hidden]="!toggleLoader"></app-loader>
+<div id="contentDiv">
+  <router-outlet></router-outlet>
+  <app-notification></app-notification>
+</div>

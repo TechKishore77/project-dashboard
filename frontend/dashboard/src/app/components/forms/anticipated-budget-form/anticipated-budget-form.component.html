@@ -1,0 +1,56 @@
+<div class="">
+  <div class="">
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <label class="form-label">Data Date</label>
+          <input
+            [formControl]="dataDate"
+            id="dataDate"
+            required
+            type="text"
+            class="form-control"
+            placeholder="Data Date"
+            bsDatepicker
+            required
+            [bsConfig]="bsConfig"
+          />
+        </div>
+        <div class="card-title">Enter Anticipated Budget</div>
+        <div>
+          <div
+            *ngFor="let component of components; let i = index"
+            [attr.data-index]="i"
+            class="form-group"
+          >
+            <app-budget-component-input
+              [component]="component"
+              (deleteRequest)="deleteItem($event, i)"
+              (change)="onChange($event, i)"
+            ></app-budget-component-input>
+          </div>
+        </div>
+        <div class="form-group">
+          <button (click)="onAddBudgetComponent()" class="btn btn-primary">
+            Add another component
+          </button>
+        </div>
+        <div class="input-group">
+          <label class="form-label input-group-text w-50">Total Budget</label>
+          <input
+            type="text"
+            class="form-control w-50 input-group-text text-left"
+            id="componentDesc"
+            [ngModel]="this.budget?.totalBudget || 0"
+            disabled
+          />
+        </div>
+        <div class="form-footer">
+          <button class="btn btn-primary btn-block" (click)="onSubmit()">
+            Update Budget
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

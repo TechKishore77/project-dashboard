@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item pb-1 m-2">
+          <a class="nav-link active" href="#" (click)="onClickSideNav(0)"
+            >S Curve</a
+          >
+        </li>
+        <li class="nav-item pb-1 m-2">
+          <a class="nav-link active" href="#" (click)="onClickSideNav(1)"
+            >SPI Variance</a
+          >
+        </li>
+        <li class="nav-item pb-1 m-2">
+          <a class="nav-link active" href="#" (click)="onClickSideNav(2)"
+            >Issues</a
+          >
+        </li>
+        <li class="nav-item pb-1 m-2">
+          <a class="nav-link active" href="#" (click)="onClickSideNav(3)"
+            >Driving Activities</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-9 row">
+      <div class="col-xs-6 col-md-6 mb-3">
+        <app-completion-project-tile
+          [projectId]="projectId"
+        ></app-completion-project-tile>
+      </div>
+      <div class="col-xs-6 col-md-6 mb-3">
+        <app-progress-project-tile
+          [projectId]="projectId"
+        ></app-progress-project-tile>
+      </div>
+      <div class="col-xs-6 col-md-6 mb-3">
+        <app-payment-project-tile
+          [projectId]="projectId"
+        ></app-payment-project-tile>
+      </div>
+      <div class="col-xs-6 col-md-6 mb-3">
+        <app-profit-project-tile
+          [projectId]="projectId"
+        ></app-profit-project-tile>
+      </div>
+    </div>
+  </div>
+</div>

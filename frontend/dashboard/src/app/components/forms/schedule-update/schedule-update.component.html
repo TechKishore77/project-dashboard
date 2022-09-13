@@ -1,0 +1,84 @@
+<div class="">
+  <div class="">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">Update Schedule</div>
+        <div class="input-group">
+          <label class="form-label w-50">Planned Completion</label>
+          <input
+            disabled
+            type="text"
+            class="form-control w-50"
+            [ngModel]="forecastCompletionData?.plannedCompletionDate"
+          />
+        </div>
+        <div class="input-group">
+          <label class="form-label w-50">Forecast Completion</label>
+          <input
+            disabled
+            type="text"
+            class="form-control w-50"
+            [ngModel]="forecastCompletionData?.forecastCompletionDate"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Data Date</label>
+          <input
+            [formControl]="dataDate"
+            id="dataDate"
+            required
+            type="text"
+            class="form-control"
+            placeholder="Data Date"
+            bsDatepicker
+            required
+            [bsConfig]="bsConfig"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Progress Percentage</label>
+          <input
+            [formControl]="progressPercentage"
+            id="progressPercentage"
+            type="number"
+            step="0.01"
+            class="form-control"
+            placeholder="Progress Percentage"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">New Forecast Completion Date</label>
+          <input
+            [formControl]="forecastCompletionDate"
+            id="forecastCompletionDate"
+            type="text"
+            class="form-control"
+            placeholder="Forecast Completion Date"
+            bsDatepicker
+            required
+          />
+        </div>
+        <app-driving-activity-table
+          *ngIf="drivingActivities.length > 0"
+          [(activities)]="drivingActivities"
+          (editRequest)="onEdit($event)"
+        ></app-driving-activity-table>
+        <accordion>
+          <accordion-group heading="Add Driving Activity">
+            <app-driving-activity-form
+              (addRequest)="onAddActivity($event)"
+              [isEditing]="isEditing"
+              [drivingActivity]="drivingActivityToEdit"
+            ></app-driving-activity-form>
+          </accordion-group>
+        </accordion>
+        <div class="form-footer">
+          <button class="btn btn-primary btn-block" (click)="onPostUpdate()">
+            Post Update
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

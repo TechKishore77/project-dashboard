@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <button
+      class="btn btn-sm rounded-0 mb-2"
+      type="button"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Back to Project Summary"
+      (click)="onBack()"
+    >
+      <fa-icon [icon]="faChevronLeft"></fa-icon>
+      <span class="pl-2">Back to Project Summary</span>
+    </button>
+  </div>
+  <tabset type="pills" #tabs>
+    <br />
+    <tab #tabSCurve="tab">
+      <ng-template tabHeading>
+        <span [ngClass]="{ menu_active: tabSCurve.active }">S Curve</span>
+      </ng-template>
+      <app-s-curve
+        [project]="project"
+        [active]="tabSCurve.active"
+      ></app-s-curve>
+    </tab>
+    <tab #tabSpiVariance="tab">
+      <ng-template tabHeading>
+        <span [ngClass]="{ menu_active: tabSpiVariance.active }"
+          >SPI Variance</span
+        >
+      </ng-template>
+      <app-spi-variance-curve
+        [project]="project"
+        [active]="tabSpiVariance.active"
+      ></app-spi-variance-curve>
+    </tab>
+    <tab #tabIssues="tab">
+      <ng-template tabHeading>
+        <span [ngClass]="{ menu_active: tabIssues.active }">Issues</span>
+      </ng-template>
+      <app-issues-grid [project]="project"></app-issues-grid>
+    </tab>
+    <tab #tabDrivingActivities="tab">
+      <ng-template tabHeading>
+        <span [ngClass]="{ menu_active: tabDrivingActivities.active }">
+          Driving Activities
+        </span>
+      </ng-template>
+      <app-driving-activity-grid
+        [project]="project"
+      ></app-driving-activity-grid>
+    </tab>
+  </tabset>
+</div>

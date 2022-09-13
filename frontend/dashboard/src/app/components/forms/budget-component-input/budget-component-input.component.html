@@ -1,0 +1,41 @@
+<div class="form-group">
+  <div class="input-group">
+    <label
+      class="form-label input-group-text w-50"
+      *ngIf="component?.isDefault"
+      >{{ component?.description }}</label
+    >
+    <input
+      type="text"
+      class="form-control w-50 input-group-text text-left"
+      id="componentDesc"
+      placeholder="Name"
+      *ngIf="!component?.isDefault"
+      (change)="onChangeName($event)"
+      [formControl]="name"
+    />
+    <div class="w-50 input-group">
+      <input
+        type="number"
+        step="0.01"
+        class="form-control"
+        aria-describedby="emailHelp"
+        placeholder="{{ component?.description }}"
+        value="{{ cost.value }}"
+        (change)="onChangeCost($event)"
+        [formControl]="cost"
+      />
+      <button
+        class="btn btn-danger btn-sm rounded-0"
+        type="button"
+        data-toggle="tooltip"
+        data-placement="top"
+        title="Delete"
+        *ngIf="!component?.isDefault"
+        (click)="onDelete()"
+      >
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>

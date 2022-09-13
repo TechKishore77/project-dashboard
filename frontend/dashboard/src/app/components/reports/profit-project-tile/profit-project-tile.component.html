@@ -1,0 +1,24 @@
+<div class="card m-3 h-100 shadow mb-5 bg-white rounded">
+  <div
+    class="card-body text-white"
+    [ngClass]="{
+      'bg-success': variance > 0,
+      'bg-danger': variance < 0,
+      'bg-secondary': variance == 0
+    }"
+  >
+    <p class="card-title">QAR {{ (data?.actualProfit || 0).toFixed(2) }}</p>
+    <p class="card-subtitle">(Profit)</p>
+    <p class="card-text">QAR {{ data?.plannedProfit || 0 }} (Planned)</p>
+    <p class="card-text">
+      {{
+        (
+          (((data?.actualProfit || 0) - (data?.plannedProfit || 0)) /
+            (data?.plannedProfit || 1)) *
+            100 || 0
+        ).toFixed(2)
+      }}
+      % change from planned
+    </p>
+  </div>
+</div>

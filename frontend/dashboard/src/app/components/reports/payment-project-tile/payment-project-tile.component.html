@@ -1,0 +1,30 @@
+<div class="card m-3 h-100 shadow mb-5 bg-white rounded">
+  <div
+    class="card-body text-white"
+    [ngClass]="{
+      'bg-success': variance < 15,
+      'bg-danger': variance >= 15
+    }"
+  >
+    <p class="card-title">QAR {{ data?.accumulatedGrossAmount || 0 }}</p>
+    <p class="card-subtitle">(Gross Invoice)</p>
+    <p class="card-text">
+      QAR {{ data?.cumulativePlannedAmount || 0 }} (Cum Planned)
+    </p>
+    <p class="card-text">
+      QAR {{ data?.cumulativeReceivedAmount || 0 }} (Cum Received)
+    </p>
+    <p class="card-text">
+      QAR {{ data?.latestGrossAmount || 0 }} (Latest Gross Amt)
+    </p>
+    <p class="card-text">
+      {{ data?.submittedDate || "NA" }} (Latest Sub. Date)
+    </p>
+    <p class="card-text">
+      QAR {{ data?.latestReceivedAmount || 0 }} (Latest Recv. Amount)
+    </p>
+    <p class="card-text">
+      {{ data?.lastReceivedDate || "NA" }} (Last Received Date)
+    </p>
+  </div>
+</div>

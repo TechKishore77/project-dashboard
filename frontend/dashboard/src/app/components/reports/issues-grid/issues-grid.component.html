@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row d-flex">
+    <div *ngIf="issues.length == 0">
+      <p>No issues created yet.</p>
+      <a class="btn btn-success" [href]="createIssueLink"
+        >Create a new issue.</a
+      >
+    </div>
+    <app-issue-grid-item
+      *ngFor="let issue of issues"
+      [issue]="issue"
+      class="col-lg-3 col-sm-6 col-xs-6 mb-3"
+      (editIssue)="onEditIssue($event)"
+      (deleteIssue)="onDeleteIssue($event)"
+    >
+    </app-issue-grid-item>
+  </div>
+</div>

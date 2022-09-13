@@ -1,0 +1,11 @@
+// {
+//     "/api/*":{
+//         "target":"http://68.183.95.241",
+//         "secure":false,
+//         "logLevel":"debug",
+//         "changeOrigin": true,
+//         "pathRewrite": {
+//             "^/api": ""
+//         }
+//     }
+// }

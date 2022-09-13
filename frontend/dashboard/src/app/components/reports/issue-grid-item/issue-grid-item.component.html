@@ -1,0 +1,127 @@
+<div
+  class="card mr-1 mb-2 shadow p-3 border-info h-100"
+  [ngbPopover]="issueSummary"
+  [popoverTitle]="issueTitle"
+  triggers="mouseenter:mouseleave"
+  [openDelay]="200"
+  [closeDelay]="400"
+>
+  <div class="card-body p-3 d-flex flex-column">
+    <p class="card-text p-y-1">
+      {{ issue?.description | ellipsis: 50 }}
+    </p>
+    <h5 class="card-title">
+      {{ issue?.status == "Open" ? "Open Since " : "Reported on " }}
+      {{ issue?.reportingDate | date: "shortDate" }}
+    </h5>
+    <div class="mt-auto">
+      <button
+        class="btn btn-success btn-sm rounded-0 mr-3"
+        type="button"
+        data-toggle="tooltip"
+        data-placement="top"
+        title="Delete"
+        (click)="openIssueEditModal(template)"
+      >
+        <fa-icon [icon]="faEdit"></fa-icon>
+      </button>
+      <button
+        class="btn btn-danger btn-sm rounded-0"
+        type="button"
+        data-toggle="tooltip"
+        data-placement="top"
+        title="Delete"
+        (click)="onDeleteButton(confirmDg)"
+      >
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #template let-modal>
+  <div role="dialog">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Upload Project</h4>
+      <button
+        type="button"
+        class="close pull-right"
+        aria-label="Close"
+        (click)="modal.close('Close button')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-issue-form
+        [issue]="issue"
+        [isEditing]="true"
+        (editIssue)="issueEdited($event)"
+        (editFailed)="editFailed()"
+      ></app-issue-form>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #issueTitle>
+  Planned Close Date: {{ issue?.plannedCloseDate }}
+</ng-template>
+
+<ng-template #issueSummary>
+  <h4>
+    Action Party: <strong>{{ issue?.actionParty }}</strong>
+  </h4>
+  <h4>
+    Reporting Date: <strong>{{ issue?.reportingDate }}</strong>
+  </h4>
+  <h4>
+    Status: <strong>{{ issue?.status }}</strong>
+  </h4>
+  {{ issue?.description | ellipsis: 200 }}
+</ng-template>
+
+<ng-template #confirmDg let-confirmDialog>
+  <div role="dialog">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Delete Issue</h4>
+      <button
+        type="button"
+        class="close pull-right"
+        aria-label="Close"
+        (click)="confirmDialog.close('Close')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Are you sure you want to delete the issue?</strong></p>
+      <h4>Issue Description</h4>
+      <p>
+        {{ issue?.description | ellipsis: 200 }}
+      </p>
+      <h4>
+        Action Party: <strong>{{ issue?.actionParty }}</strong>
+      </h4>
+      <h4>
+        Reporting Date: <strong>{{ issue?.reportingDate }}</strong>
+      </h4>
+      <h4>
+        Status: <strong>{{ issue?.status }}</strong>
+      </h4>
+    </div>
+    <div class="modal-footer">
+      <button
+        class="btn btn-danger btn-lg p-2 mr-2"
+        (click)="confirmDialog.close('No')"
+      >
+        No
+      </button>
+      <button
+        class="btn btn-success btn-lg p-2"
+        (click)="confirmDialog.close('Yes')"
+      >
+        Yes
+      </button>
+    </div>
+  </div>
+</ng-template>

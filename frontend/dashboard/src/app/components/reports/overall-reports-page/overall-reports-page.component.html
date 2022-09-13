@@ -1,0 +1,29 @@
+<div>
+  <tabset type="pills">
+    <br />
+    <tab #tabCompletion="tab">
+      <ng-template tabHeading>
+        <i><h3 [ngClass]="{ active: tabCompletion.active }">Completion</h3></i>
+      </ng-template>
+      <app-completion-overall-report></app-completion-overall-report>
+    </tab>
+    <tab #tabProfit="tab">
+      <ng-template tabHeading>
+        <i><h3 [ngClass]="{ active: tabProfit.active }">Profit</h3></i>
+      </ng-template>
+      <app-profit-overall-report></app-profit-overall-report>
+    </tab>
+    <tab #tabProgress="tab">
+      <ng-template tabHeading>
+        <i><h3 [ngClass]="{ active: tabProgress.active }">Progress</h3></i>
+      </ng-template>
+      <app-progress-overall-report></app-progress-overall-report>
+    </tab>
+    <tab #tabPayments="tab">
+      <ng-template tabHeading>
+        <i><h3 [ngClass]="{ active: tabPayments.active }">Payments</h3></i>
+      </ng-template>
+      <app-payments-overall-report></app-payments-overall-report>
+    </tab>
+  </tabset>
+</div>

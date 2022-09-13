@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="h3">Project Progress</div>
+
+  <div id="chart">
+    <apx-chart
+      [series]="[complete, pending]"
+      [chart]="chartOptions.chart"
+      [labels]="chartOptions.labels"
+      [fill]="chartOptions.fill"
+      [dataLabels]="chartOptions.dataLabels"
+      [responsive]="chartOptions.responsive"
+    ></apx-chart>
+  </div>
+</div>

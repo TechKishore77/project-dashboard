@@ -1,0 +1,109 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Below will be moved to Variables.scss
+$gray-800: #343a40 !default;
+$invalid-red-color: #dc3545 !default;
+
+/* Application-wide Styles */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+h2,
+h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+
+#contentDiv {
+  margin: 100px;
+  margin-left: 300px;
+}
+
+body,
+input[type="text"],
+button {
+  color: #333;
+  font-family: Cambria, Georgia;
+}
+
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body { height: 100%; }
+body {font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Hider Arrows for the input type number*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-control.ng-touched.ng-invalid{
+  border-color: $invalid-red-color;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.mainheader{
+  width: 100px;
+}
+.subheader{
+  width: 0px;
+}
+
+.bg-light{
+  background-color: #39374f!important;
+}
+.mainsidebar{
+  padding: 80px 0px 0px 0px !important;
+}
+
+
+@page{
+  size:auto;
+}
+
+.page .section-white, .page .section-body {
+    background: #ffffff !important;
+}
+
+.card-footer {
+    padding: 1rem 1.50rem;
+    background:white;
+}
+.progress {
+    display: flex;
+    height: 3px;
+    overflow: hidden;
+    line-height: 0;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+}
+
+@media screen and (max-width: 700px) {
+  #contentDiv {
+    margin: 2em 1em 1em 1em;
+    padding-top: 3em;
+  }
+  .subheader{
+    width: 60px;
+  }
+
+  #page_top {
+    height: 5em;
+  }
+
+  .page-header {
+    height: 5em;
+  }
+}

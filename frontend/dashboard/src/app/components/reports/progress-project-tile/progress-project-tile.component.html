@@ -1,0 +1,24 @@
+<div class="card m-3 h-100 shadow mb-5 bg-white rounded">
+  <div
+    class="card-body text-white"
+    [ngClass]="{
+      'bg-success': data.actualProgress - data.plannedProgress > 0,
+      'bg-danger': data.actualProgress - data.plannedProgress < 0,
+      'bg-secondary': data.actualProgress == data.plannedProgress
+    }"
+  >
+    <p class="card-title">{{ data?.actualProgress || 0 }} %</p>
+    <p class="card-subtitle">(Progress %)</p>
+    <p class="card-text">
+      {{ (data?.plannedProgress || 0).toFixed(2) }} % planned as on
+      {{ data?.dataDate }}
+    </p>
+    <p class="card-text">
+      Variance :
+      {{
+        ((data?.actualProgress || 0) - (data?.plannedProgress || 0)).toFixed(2)
+      }}
+      %
+    </p>
+  </div>
+</div>

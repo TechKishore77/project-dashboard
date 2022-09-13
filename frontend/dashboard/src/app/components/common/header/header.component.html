@@ -1,0 +1,152 @@
+<header class="fixed-top">
+  <div id="left-sidebar" class="sidebar">
+    <h5 class="brand-name">
+      <a routerLink="/">
+        <img class="mainheader" src="../assets/images/mslogo.png" />
+      </a>
+    </h5>
+    <nav id="left-sidebar-nav" class="sidebar-nav">
+      <ul class="metismenu">
+        <li class="g_heading">Project Dashboard</li>
+        <li
+          ng-reflect-router-link-active="active"
+          ng-reflect-router-link-active-options="[object Object]"
+        >
+          <a class="submenu list-a" ng-reflect-router-link="/download-report"
+            ><fa-icon [icon]="faDownload"></fa-icon
+            ><span>Download Report</span></a
+          >
+        </li>
+        <li [class]="this.router.url === '/projects' ? 'active' : ''">
+          <a
+            href="javascript:void(0)"
+            routerLink="/projects"
+            aria-controls="ProjectCollapsed"
+            class="has-arrow arrow-c"
+            aria-expanded="true"
+            ><fa-icon [icon]="faProjectDiagram"></fa-icon
+            ><span>Projects</span></a
+          >
+        </li>
+        <li [class]="this.router.url === '/reports-overall' ? 'active' : ''">
+          <a
+            href="javascript:void(0)"
+            routerLink="/reports-overall"
+            aria-controls="JobCollapsed"
+            class="has-arrow arrow-c"
+            aria-expanded="false"
+            ><fa-icon [icon]="faChartBar"></fa-icon
+            ><span>Overall Reports</span></a
+          >
+        </li>
+        <!-- li [class]="this.router.url === '/profile' ? 'active' : ''">
+          <a
+            href="javascript:void(0)"
+            aria-controls="AuthCollapsed"
+            class="has-arrow arrow-c"
+            aria-expanded="false"
+            routerLink="/profile"
+            ><fa-icon [icon]="faUser"></fa-icon><span>Profile</span></a
+          >
+        </li -->
+      </ul>
+    </nav>
+  </div>
+
+  <div id="page_top" class="section-body top_dark">
+    <div class="container-fluid">
+      <div class="page-header">
+        <div class="left">
+          <h1 class="page-title">
+            <a routerLink="/">
+              <img class="subheader" src="../assets/images/mslogo.png" />
+            </a>
+          </h1>
+        </div>
+        <div class="right">
+          <!--ul class="nav nav-pills">
+            <li dropdown="" class="nav-item dropdown">
+              <a
+                href="javascript:void(0);"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                id="button-basic"
+                dropdowntoggle=""
+                aria-controls="dropdown-basic"
+                class="nav-link dropdown-toggle"
+                >Language</a
+              >
+            </li>
+
+            <li class="nav-item" dropdown>
+              <div class="dropdown show">
+                <a
+                  class="btn btn-secondary dropdown-toggle"
+                  href="#"
+                  role="button"
+                  id="dropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Dropdown link
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+              <a
+                href="javascript:void(0);"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                class="dropdown-toggle"
+                id="dropdownMenuButton"
+              >
+                Reports</a
+              >
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+
+            <li dropdown="" class="nav-item dropdown">
+              <a
+                href="javascript:void(0);"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                id="button-basic"
+                dropdowntoggle=""
+                aria-controls="dropdown-basic"
+                class="nav-link dropdown-toggle"
+                >Project</a
+              >
+            </li>
+
+          </ul-->
+          <span>
+            {{ loggedInUser }}
+            <fa-icon
+              [icon]="faPowerOff"
+              (click)="logoff()"
+              class="cursor-pointer"
+            ></fa-icon>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
