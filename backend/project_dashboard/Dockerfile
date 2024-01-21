@@ -3,10 +3,9 @@ FROM openjdk:11
 VOLUME /tmp
 WORKDIR /app
 
-ARG JAR_FILE=build/libs/*.jar
-
 CMD ['./gradlew', 'build']
 
+ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 
 EXPOSE 8080
