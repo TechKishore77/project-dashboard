@@ -4,6 +4,8 @@ VOLUME /tmp
 
 ARG JAR_FILE=build/libs/*.jar
 
+CMD ['./gradlew', 'build']
+
 COPY ${JAR_FILE} app.jar
 
 EXPOSE 8080
