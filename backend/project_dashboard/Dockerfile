@@ -3,6 +3,8 @@ FROM openjdk:11
 VOLUME /tmp
 WORKDIR /app
 
+COPY . .
+
 CMD ['./gradlew', 'build']
 
 ARG JAR_FILE=build/libs/*.jar
