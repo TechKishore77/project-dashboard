@@ -1,6 +1,7 @@
 FROM openjdk:11
 
 VOLUME /tmp
+WORKDIR /app
 
 ARG JAR_FILE=build/libs/*.jar
 
