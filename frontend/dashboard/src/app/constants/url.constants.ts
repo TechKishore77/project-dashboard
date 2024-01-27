@@ -10,7 +10,7 @@ export const UrlConstants = {
   AUTH: {
     LOGIN: '/auth/token',
     LOGOUT: '/auth/logout',
-    SERVER_URL: 'https://project-dashboard-api.onrender.com'
+    SERVER_URL: environment.baseUrl
   },
   USER: {
     REGISTER: '/auth/register'
